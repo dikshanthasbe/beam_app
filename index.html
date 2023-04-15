@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simply Supported Beam Reaction Calculator - Point Load</title>
+  </head>
+  <body>
+    <h1>Simply Supported Beam Reaction Calculator - Point Load</h1>
+    <form>
+      <label for="span">Beam Span (m):</label>
+      <input type="number" id="span" name="span" step="0.01" required><br><br>
+      <label for="load">Point Load (N):</label>
+      <input type="number" id="load" name="load" required><br><br>
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      function calculate() {
+        const span = document.getElementById("span").value;
+        const load = document.getElementById("load").value;
+        const reaction = load / 2;
+        const moment = load * span / 4;
+        const result = `Reaction at each support = ${reaction.toFixed(2)} N<br>
+                         Maximum bending moment = ${moment.toFixed(2)} Nm`;
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
